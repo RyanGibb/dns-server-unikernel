@@ -2,7 +2,11 @@
 
 open Mirage
 
-let disk = generic_kv_ro "data"
+let disk = direct_kv_rw "data"
+
+let axfr =
+  let doc = Key.Arg.info ~doc:"Allow unauthenticated zone transfer." ["axfr"] in
+  Key.(create "axfr" Arg.(flag doc))
 
 let dns_handler =
   let packages =
@@ -14,9 +18,10 @@ let dns_handler =
     ]
   in
   foreign
+    ~keys:[Key.abstract axfr]
     ~packages
     "Unikernel.Main"
-    (random @-> pclock @-> mclock @-> time @-> stackv4v6 @-> kv_ro @-> job)
+    (random @-> pclock @-> mclock @-> time @-> stackv4v6 @-> kv_rw @-> job)
 
 let () =
   register "primary"
