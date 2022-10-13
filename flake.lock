@@ -26,9 +26,48 @@
         "type": "github"
       },
       "original": {
+        "id": "flake-utils",
+        "type": "indirect"
+      }
+    },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "hillingar": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nix-filter": "nix-filter",
+        "nixpkgs": "nixpkgs",
+        "opam-nix": "opam-nix",
+        "opam-overlays": [
+          "opam-overlays"
+        ],
+        "opam-repository": [
+          "opam-repository"
+        ],
+        "opam2json": "opam2json"
+      },
+      "locked": {
+        "lastModified": 1663693798,
+        "narHash": "sha256-BmNjLGbmcpVNsA5cJ+bil3DSfTRc7aDxxjRlrCRahpw=",
+        "type": "git",
+        "url": "file:///home/ryan/projects/hillingar"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/ryan/projects/hillingar"
       }
     },
     "nix-filter": {
@@ -62,28 +101,48 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1663681488,
+        "narHash": "sha256-oJzaIlUSHBFA6cM6OjRh2GxKSHZRD/2wO0DzcoBX1Yc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "078c6493e1bdbe9d3c808c859fcdfcaabbce40d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "opam-nix": {
       "inputs": {
         "flake-compat": "flake-compat",
         "flake-utils": [
+          "hillingar",
           "flake-utils"
         ],
         "nixpkgs": [
+          "hillingar",
           "nixpkgs"
         ],
         "opam-overlays": [
+          "hillingar",
           "opam-overlays"
         ],
         "opam-repository": [
+          "hillingar",
           "opam-repository"
         ],
         "opam2json": [
+          "hillingar",
           "opam2json"
         ]
       },
       "locked": {
-        "lastModified": 1662743835,
-        "narHash": "sha256-sx6FT8vXSq3MAAygJGrrIamf8aHSkDluTPQVtiUhxDA=",
+        "lastModified": 1663162772,
+        "narHash": "sha256-WybHSGrAEyiJbJqrVKr05ZmR0yc/Kyrb+Kp2soY5W80=",
         "type": "git",
         "url": "file:///home/ryan/projects/opam-nix"
       },
@@ -111,11 +170,11 @@
     "opam-repository": {
       "flake": false,
       "locked": {
-        "lastModified": 1661789125,
-        "narHash": "sha256-+pG5NypBCk1ZvmOsLln9I11rtSpVNx+pMR8/ei/6UYk=",
+        "lastModified": 1663666619,
+        "narHash": "sha256-sYNLlHM4lLNASwe6kmF4tCZWiFymBZoPDdHsR9xI1Q0=",
         "owner": "ocaml",
         "repo": "opam-repository",
-        "rev": "549f56d610ae027904e52f763a45b91afad3bd79",
+        "rev": "3da0e294a773658c8102ed8cb374c2bdc741a494",
         "type": "github"
       },
       "original": {
@@ -127,6 +186,7 @@
     "opam2json": {
       "inputs": {
         "nixpkgs": [
+          "hillingar",
           "nixpkgs"
         ]
       },
@@ -147,12 +207,10 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nix-filter": "nix-filter",
-        "nixpkgs": "nixpkgs",
-        "opam-nix": "opam-nix",
+        "hillingar": "hillingar",
+        "nixpkgs": "nixpkgs_2",
         "opam-overlays": "opam-overlays",
-        "opam-repository": "opam-repository",
-        "opam2json": "opam2json"
+        "opam-repository": "opam-repository"
       }
     }
   },
